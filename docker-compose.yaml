@@ -1,0 +1,53 @@
+version: '3.9'
+
+networks:
+  app-networks:
+    driver: bridge
+
+volumes:
+  rabbitmq-data:
+    driver: local
+  redis-data:
+    driver: local
+
+
+services:
+  queue:
+    image: rabbitmq:3.13.6-management-alpine
+    container_name: rabbit-mq
+    hostname: rabbitmq
+    ports:
+      - ${RABBIT_AMQP_PORT_MAPPING}
+      - ${RABBIT_GUI_PORT_MAPPING}
+    networks:
+      - app-networks
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBIT_USERNAME}
+      RABBITMQ_DEFAULT_PASS: ${RABBIT_PASSWORD}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q status
+      interval: 10s
+      timeout: 5s
+      start_period: 5s
+      retries: 5
+    restart: always
+  cache:
+    image: redis:7.4-rc2-alpine
+    container_name: redis
+    hostname: redis
+    ports:
+      - ${REDIS_AMQP_PORT_MAPPING}
+    networks:
+      - app-networks
+    volumes:
+      - redis-data:/var/lib/redis
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 5s
+      start_period: 5s
+      retries: 5
+    restart: always

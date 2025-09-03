@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+bot:
+  name: ${BOT_NAME}
+  token: ${BOT_TOKEN}
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: dispatcher-service
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USERNAME}
+    password: ${RABBIT_PASSWORD}
+    queues:
+      textMessageUpdate: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
+      photoMessageUpdate: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE}
