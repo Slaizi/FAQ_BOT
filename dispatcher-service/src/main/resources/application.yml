@@ -18,3 +18,4 @@ spring:
     queues:
       textMessageUpdate: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
       photoMessageUpdate: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE}
+      answerMessage: ${RABBIT_ANSWER_MESSAGE_QUEUE}
