@@ -25,7 +25,7 @@ public class KeyboardFactory {
     }
 
     public ReplyKeyboard createKeyboard(KeyboardType type,
-                                        BotCommandRegister.MessageAction[] commands) {
+                                        BotCommandRegister.BotCmdActions[] commands) {
         return Optional.ofNullable(map.get(type))
                 .map(func -> func.create(commands))
                 .orElseThrow(() -> new IllegalArgumentException("Keyboard type not supported: %s".formatted(type)));

@@ -25,7 +25,7 @@ public class MessageController {
         String msg = update.getMessage().getText();
         Deque<BotState> states = stateCachingService.get(userId);
 
-        Arrays.stream(Objects.requireNonNull(states.peek()).getArray())
+        Arrays.stream(Objects.requireNonNull(states.peek()).getCommands())
                 .filter(f -> f.getValue().equals(msg))
                 .findFirst()
                 .ifPresent(command -> {
@@ -35,7 +35,7 @@ public class MessageController {
                 });
     }
 
-    private Command getCommandHandler(BotCommandRegister.MessageAction action) {
+    private Command getCommandHandler(BotCommandRegister.BotCmdActions action) {
         try {
             return action.getCommandHandler(applicationContext);
         } catch (Exception e) {

@@ -11,6 +11,6 @@ public enum BotState {
 
     FIRST_MONITOR(BotCommandRegister.FirstMonitorCommands.values());
 
-    private final BotCommandRegister.MessageAction[] array;
+    private final BotCommandRegister.BotCmdActions[] commands;
 
 }

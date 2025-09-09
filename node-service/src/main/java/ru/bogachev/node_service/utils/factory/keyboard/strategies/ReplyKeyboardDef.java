@@ -21,14 +21,14 @@ public class ReplyKeyboardDef implements KeyboardCreator {
     }
 
     @Override
-    public ReplyKeyboard create(BotCommandRegister.MessageAction[] commands) {
+    public ReplyKeyboard create(BotCommandRegister.BotCmdActions[] commands) {
         ReplyKeyboardMarkup markup = createReplyKeyboardWithSettings();
         List<KeyboardRow> keyboard = createFormattedKeyboardDef(commands);
         markup.setKeyboard(keyboard);
         return markup;
     }
 
-    private List<KeyboardRow> createFormattedKeyboardDef(BotCommandRegister.MessageAction[] commands) {
+    private List<KeyboardRow> createFormattedKeyboardDef(BotCommandRegister.BotCmdActions[] commands) {
         List<KeyboardRow> keyboard = new ArrayList<>();
         int totalCommand = commands.length;
         int half = totalCommand / 2;
@@ -46,7 +46,7 @@ public class ReplyKeyboardDef implements KeyboardCreator {
         return keyboard;
     }
 
-    private KeyboardRow buildKeyboardRow(BotCommandRegister.MessageAction[] commands, int start, int end) {
+    private KeyboardRow buildKeyboardRow(BotCommandRegister.BotCmdActions[] commands, int start, int end) {
         return IntStream.range(start, end)
                 .mapToObj(i -> commands[i].getValue())
                 .filter(v -> !v.startsWith("/"))

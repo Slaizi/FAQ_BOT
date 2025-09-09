@@ -8,6 +8,6 @@ public interface KeyboardCreator {
 
     KeyboardType getType();
 
-    ReplyKeyboard create(BotCommandRegister.MessageAction[] commands);
+    ReplyKeyboard create(BotCommandRegister.BotCmdActions[] commands);
 
 }

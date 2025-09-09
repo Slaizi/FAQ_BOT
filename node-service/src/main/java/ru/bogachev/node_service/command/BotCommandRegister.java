@@ -12,14 +12,14 @@ import ru.bogachev.node_service.command.handlers.StartCommand;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BotCommandRegister {
 
-    public interface MessageAction {
+    public interface BotCmdActions {
         String getValue();
         Command getCommandHandler(ApplicationContext context) throws BeansException;
     }
 
     @Getter
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
-    public enum FirstMonitorCommands implements MessageAction {
+    public enum FirstMonitorCommands implements BotCmdActions {
 
         START("/start", StartCommand.class);
 

@@ -20,7 +20,6 @@ public class StartCommand extends Command {
 
     @Override
     public void handleUpdate(Update update, BotState state) {
-
         messageProducerService.produce(createSendMessageDto(update, state));
     }
 
@@ -28,7 +27,7 @@ public class StartCommand extends Command {
         return new SendMessageDto(
                 update.getMessage().getChatId(),
                 "\uD83D\uDC4B Привет %s!\nНапиши свой вопрос здесь — и я постараюсь помочь ✨".formatted(update.getMessage().getChat().getFirstName()),
-                keyboardFactory.createKeyboard(REPLY_KEYBOARD_DEF, state.getArray()),
+                keyboardFactory.createKeyboard(REPLY_KEYBOARD_DEF, state.getCommands()),
                 SEND_MESSAGE.getValue()
         );
     }
