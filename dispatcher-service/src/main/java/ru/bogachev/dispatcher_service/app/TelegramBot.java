@@ -2,7 +2,9 @@ package ru.bogachev.dispatcher_service.app;
 
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.bogachev.dispatcher_service.service.DispatcherService;
 
 public class TelegramBot extends TelegramLongPollingBot {
@@ -26,4 +28,15 @@ public class TelegramBot extends TelegramLongPollingBot {
     public String getBotUsername() {
         return botName;
     }
+
+    public void sendAnswerMessage(SendMessage message) {
+        if (message != null) {
+            try {
+                execute(message);
+            } catch (TelegramApiException ignored) {
+            }
+        }
+    }
+
+
 }

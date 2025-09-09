@@ -1,10 +1,11 @@
-package ru.bogachev.node_service.service;
+package ru.bogachev.node_service.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.bogachev.node_service.controller.MessageController;
+import ru.bogachev.node_service.service.MessageConsumerService;
 
 @Service
 @RequiredArgsConstructor
