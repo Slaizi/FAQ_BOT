@@ -1,3 +1,13 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/changesets
+  - include:
+      file: db/changelog/changesets/V1__CREATE_USERS_TABLE.sql
+  - include:
+      file: db/changelog/changesets/V2__CREATE_USERS_ROLES_TABLE.sql
+  - include:
+      file: db/changelog/changesets/V3__CREATE_REQUESTS_TABLE.sql
+  - include:
+      file: db/changelog/changesets/V4__CREATE_USERS_REQUESTS_TABLE.sql
+  - include:
+      file: db/changelog/changesets/V5__CREATE_PHOTOS_TABLE.sql
+  - include:
+      file: db/changelog/changesets/V6__CREATE_REQUESTS_PHOTOS_TABLE.sql
