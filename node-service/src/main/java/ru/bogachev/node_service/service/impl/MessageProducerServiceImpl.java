@@ -3,7 +3,7 @@ package ru.bogachev.node_service.service.impl;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ru.bogachev.node_service.data.dto.BaseMessageDto;
+import ru.bogachev.node_service.data.dto.message.BaseMessageDto;
 import ru.bogachev.node_service.service.MessageProducerService;
 
 @Service

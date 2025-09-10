@@ -1,4 +1,4 @@
-package ru.bogachev.node_service.data.dto;
+package ru.bogachev.node_service.data.dto.message;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 

@@ -3,12 +3,12 @@ package ru.bogachev.node_service.command.handlers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.bogachev.node_service.data.dto.SendMessageDto;
+import ru.bogachev.node_service.data.dto.message.SendMessageDto;
 import ru.bogachev.node_service.service.MessageProducerService;
 import ru.bogachev.node_service.state.BotState;
 import ru.bogachev.node_service.utils.factory.keyboard.KeyboardFactory;
 
-import static ru.bogachev.node_service.data.dto.MessageType.SEND_MESSAGE;
+import static ru.bogachev.node_service.data.dto.message.MessageType.SEND_MESSAGE;
 import static ru.bogachev.node_service.utils.factory.keyboard.KeyboardType.REPLY_KEYBOARD_DEF;
 
 @Component

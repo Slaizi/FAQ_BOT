@@ -1,4 +1,4 @@
-package ru.bogachev.node_service.data.dto;
+package ru.bogachev.node_service.data.dto.message;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
